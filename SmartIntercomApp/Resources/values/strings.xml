@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">Домофон</string>
+  <string name="action_call_reject">Отклонить</string>
+  <string name="action_call_accept">Ответить</string>
+  <string name="action_call_end">Завершить</string>
+  <string name="action_open_door">Открыть</string>
+  <string name="action_settings">Настройки</string>
+</resources>

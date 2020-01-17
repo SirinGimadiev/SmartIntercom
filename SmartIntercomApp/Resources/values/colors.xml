@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#007BC3</color>
+  <color name="colorPrimaryDark">#007BC3</color>
+  <color name="colorAccent">#007BC3</color>
+  <color name="colorCallEnd">#E01f22</color>
+  <color name="colorCall">#4DDA7C</color>
+  <color name="colorCallFabText">#FFFFFF</color>
+  <color name="colorOpenDoorFab">#E84735</color>
+  <color name="colorOrange">#E1651B</color>
+</resources>
