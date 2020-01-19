@@ -1,13 +1,17 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
+using Android.Views;
 using Android.Widget;
 using LibVLCSharp.Shared;
+using ActionBar = Android.App.ActionBar;
 using VideoView = LibVLCSharp.Platforms.Android.VideoView;
 
-namespace Ru.Tattelecom.SmartIntercom
+namespace Ru.Tattelecom.SmartIntercom.Ui.Main
 {
-    [Activity(MainLauncher = true)]
+    [Activity]
     public class MainActivity : AppCompatActivity
     {
         private const string StreamUrl =
@@ -33,18 +37,28 @@ namespace Ru.Tattelecom.SmartIntercom
 
         private void CreatePlayer(string streamUrl)
         {
+            Core.Initialize();
             //var options = new string[] {
             //    "--file-caching=150", "--network-caching=150",
             //    "--clock-jitter=0", "--live-caching=150", "--clock-synchro=0",
             //    "-vvv", "--drop-late-frames", "--skip-frames"
             //};
-            var options = new[] {"-vvv"};
-            _libVlc = new LibVLC(options);
-            _mediaPlayer = new MediaPlayer(_libVlc) {EnableHardwareDecoding = true};
-            _videoView = new VideoView(this) {MediaPlayer = _mediaPlayer};
-            _videoLayout.AddView(_videoView);
-            var media = new Media(_libVlc, streamUrl, FromType.FromLocation);
-            _videoView.MediaPlayer.Play(media);
+            //var options = new[] {"-vvv"};
+            //_libVlc = new LibVLC(options);
+            try
+            {
+                _libVlc = new LibVLC();
+                _mediaPlayer = new MediaPlayer(_libVlc) {EnableHardwareDecoding = true};
+                _videoView = new VideoView(this) {MediaPlayer = _mediaPlayer};
+                _videoLayout.AddView(_videoView,
+                    new ActionBar.LayoutParams(ViewGroup.LayoutParams.WrapContent, ViewGroup.LayoutParams.MatchParent));
+                var media = new Media(_libVlc, streamUrl, FromType.FromLocation);
+                _videoView.MediaPlayer.Play(media);
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <dimen name="activity_horizontal_margin">16dp</dimen>
+  <dimen name="activity_vertical_margin">16dp</dimen>
   <dimen name="call_fab_size">64dp</dimen>
   <dimen name="call_fab_image_size">32dp</dimen>
   <dimen name="call_fab_margin_left">64dp</dimen>
