@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.Runtime;
+using LibVLCSharp.Shared;
 using Ninject;
 using Ru.Tattelecom.SmartIntercom.Di;
 
@@ -22,6 +23,7 @@ namespace Ru.Tattelecom.SmartIntercom
                 new NinjectSettings {LoadExtensions = false},
                 new RepositoryModule(),
                 new ViewModelsModul());
+            Core.Initialize();
             base.OnCreate();
         }
     }

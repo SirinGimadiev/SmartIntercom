@@ -4,12 +4,12 @@
     {
         public string VideoStream { get; set; }
 
-        public string StreamLogin { get; set; }
+        public string BaseUri { get; set; }
 
-        public string StreamPassword { get; set; }
+        public string OpenDoorAction { get; set; }
 
-        public int Width { get; set; }
+        public string Name { get; set; }
 
-        public int Height { get; set; }
+        public string Address { get; set; }
     }
 }

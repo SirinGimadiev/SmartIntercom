@@ -8,8 +8,9 @@ namespace Ru.Tattelecom.SmartIntercom.Di
     {
         public override void Load()
         {
-            Bind<ICache>().To<LocalCache>();
-            Bind<IUserRepository>().To<MainRepository>();
+            Bind<ICache>().To<LocalCache>().InSingletonScope();
+            Bind<IUserRepository>().To<MainRepository>().InSingletonScope();
+            Bind<IIntercomReposistory>().To<MainRepository>().InSingletonScope();
         }
     }
 }

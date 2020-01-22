@@ -5,7 +5,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Text;
 using Android.Widget;
-using Ru.Tattelecom.SmartIntercom.Ui.Main;
+using Ru.Tattelecom.SmartIntercom.Ui.IntercomList;
 
 namespace Ru.Tattelecom.SmartIntercom.Ui.Login
 {
@@ -27,26 +27,7 @@ namespace Ru.Tattelecom.SmartIntercom.Ui.Login
             _loginEditText = FindViewById<EditText>(Resource.Id.loginEditText);
             _passwordEditText = FindViewById<EditText>(Resource.Id.passwordEditText);
             _loginButton = FindViewById<Button>(Resource.Id.signInButton);
-        }
 
-        private void LoginButtonOnClick(object sender, EventArgs e)
-        {
-            _loginViewModel.Login(_loginEditText.Text, _passwordEditText.Text);
-        }
-
-        private void PasswordEditorAction(object sender, TextView.EditorActionEventArgs e)
-        {
-            _loginViewModel.Login(_loginEditText.Text, _passwordEditText.Text);
-        }
-
-        private void LoginDataChanged(object sender, AfterTextChangedEventArgs e)
-        {
-            _loginViewModel.LoginDataChanged(_loginEditText.Text, _passwordEditText.Text);
-        }
-
-        protected override void OnResume()
-        {
-            base.OnResume();
             _loginFormStateSubscribe = _loginViewModel.LoginFormState.Subscribe(state =>
             {
                 if (state == null) return;
@@ -76,20 +57,35 @@ namespace Ru.Tattelecom.SmartIntercom.Ui.Login
             _loginButton.Click += LoginButtonOnClick;
         }
 
-        protected override void OnPause()
+        private void LoginButtonOnClick(object sender, EventArgs e)
         {
-            base.OnPause();
+            _loginViewModel.Login(_loginEditText.Text, _passwordEditText.Text);
+        }
+
+        private void PasswordEditorAction(object sender, TextView.EditorActionEventArgs e)
+        {
+            _loginViewModel.Login(_loginEditText.Text, _passwordEditText.Text);
+        }
+
+        private void LoginDataChanged(object sender, AfterTextChangedEventArgs e)
+        {
+            _loginViewModel.LoginDataChanged(_loginEditText.Text, _passwordEditText.Text);
+        }
+
+        protected override void OnDestroy()
+        {
             _loginFormStateSubscribe.Dispose();
             _loginResultSubscribe.Dispose();
             _loginEditText.AfterTextChanged -= LoginDataChanged;
             _passwordEditText.AfterTextChanged -= LoginDataChanged;
             _passwordEditText.EditorAction -= PasswordEditorAction;
             _loginButton.Click -= LoginButtonOnClick;
+            base.OnDestroy();
         }
 
         private void UpdateUi()
         {
-            var intent = new Intent(this, typeof(MainActivity));
+            var intent = new Intent(this, typeof(IntercomListActivity));
             StartActivity(intent);
         }
 

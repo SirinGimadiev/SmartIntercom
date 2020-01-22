@@ -5,6 +5,8 @@ namespace Ru.Tattelecom.SmartIntercom.Data.Repository
 {
     public interface IIntercomReposistory
     {
-        IEnumerable<Intercom> GetIntercoms(int userId);
+        IEnumerable<Intercom> GetIntercoms();
+
+        void OpenDoor(Intercom intercom);
     }
 }

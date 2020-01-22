@@ -4,6 +4,16 @@
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public SipUser Sip { get; set; }
+
+        public User()
+        {
+            Sip = new SipUser
+            {
+                Login = "8432228021",
+                Password = "v8AZd4z5",
+                Domain = "Sip.tattelecom.ru"
+            };
+        }
     }
 }
