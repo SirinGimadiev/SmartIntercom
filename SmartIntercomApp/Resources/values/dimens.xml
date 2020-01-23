@@ -7,4 +7,6 @@
   <dimen name="call_fab_margin_left">64dp</dimen>
   <dimen name="call_fab_margin_bottom">96dp</dimen>
   <dimen name="call_fab_text_size">14sp</dimen>
+  <dimen name="numeric_button_margin">32dp</dimen>
+  <dimen name="numeric_button_margin_left">40dp</dimen>
 </resources>

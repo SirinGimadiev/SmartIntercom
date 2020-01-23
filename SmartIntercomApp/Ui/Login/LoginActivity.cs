@@ -9,7 +9,7 @@ using Ru.Tattelecom.SmartIntercom.Ui.IntercomList;
 
 namespace Ru.Tattelecom.SmartIntercom.Ui.Login
 {
-    [Activity(MainLauncher = true)]
+    [Activity()]
     public class LoginActivity : AppCompatActivity
     {
         private LoginViewModel _loginViewModel;

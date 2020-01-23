@@ -82,11 +82,14 @@
     <Compile Include="Ui\Login\LoginActivity.cs" />
     <Compile Include="Ui\Login\LoginViewModel.cs" />
     <Compile Include="Ui\IntercomList\IntercomListViewModel.cs" />
+    <Compile Include="Ui\Pin\PinActivity.cs" />
+    <Compile Include="Ui\Pin\PinViewModel.cs" />
     <Compile Include="Ui\Settings\SettingsActivity.cs" />
     <Compile Include="Ui\Settings\SettingsViewModel.cs" />
     <Compile Include="Ui\VideoCall\VideoCallActivity.cs" />
     <Compile Include="Ui\VideoCall\VideoCallViewModel.cs" />
     <Compile Include="Ui\ViewModelFactory.cs" />
+    <Compile Include="Utilits\AsteriskPasswordTransformationMethod.cs" />
     <Compile Include="Utilits\IHttpClient.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +128,9 @@
     </PackageReference>
     <PackageReference Include="VideoLAN.LibVLC.Android">
       <Version>3.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
+      <Version>1.1.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
@@ -211,6 +217,26 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_intercom.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_pin.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rounded_button.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_fingerprint.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rounded_button_pressed.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\rounded_button_selector.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

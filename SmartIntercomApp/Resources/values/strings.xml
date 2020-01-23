@@ -5,4 +5,16 @@
   <string name="action_call_end">Завершить</string>
   <string name="action_open_door">Открыть</string>
   <string name="action_settings">Настройки</string>
+  <string name="action_one">1</string>
+  <string name="action_two">2</string>
+  <string name="action_three">3</string>
+  <string name="action_four">4</string>
+  <string name="action_five">5</string>
+  <string name="action_six">6</string>
+  <string name="action_seven">7</string>
+  <string name="action_eight">8</string>
+  <string name="action_nine">9</string>
+  <string name="action_zero">0</string>
+  <string name="action_clear">C</string>
+  <string name="action_sing_in">B</string>
 </resources>
