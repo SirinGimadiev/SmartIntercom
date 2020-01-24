@@ -4,7 +4,7 @@ using Android.Support.V7.App;
 
 namespace Ru.Tattelecom.SmartIntercom.Ui.Settings
 {
-    [Activity(Label = "SettingsActivity")]
+    [Activity()]
     public class SettingsActivity : AppCompatActivity
     {
         private SettingsViewModel _viewModel;

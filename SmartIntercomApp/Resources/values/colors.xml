@@ -8,4 +8,5 @@
   <color name="colorCallFabText">#FFFFFF</color>
   <color name="colorOpenDoorFab">#E84735</color>
   <color name="colorOrange">#E1651B</color>
+  <color name="colorGray">#7C7C7C</color>
 </resources>

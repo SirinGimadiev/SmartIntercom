@@ -4,7 +4,7 @@ namespace Ru.Tattelecom.SmartIntercom.Data.Cache
 {
     public class LocalCache : ICache
     {
-        private User _user;
+        private User _user; //TODO ROOM sqlite
 
 
         public void Clear()

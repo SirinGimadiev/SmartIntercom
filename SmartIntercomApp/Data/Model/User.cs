@@ -8,12 +8,6 @@
 
         public User()
         {
-            Sip = new SipUser
-            {
-                Login = "8432228021",
-                Password = "v8AZd4z5",
-                Domain = "Sip.tattelecom.ru"
-            };
         }
     }
 }

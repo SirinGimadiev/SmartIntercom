@@ -76,10 +76,6 @@ namespace Ru.Tattelecom.SmartIntercom.Ui.Login
         {
             _loginFormStateSubscribe.Dispose();
             _loginResultSubscribe.Dispose();
-            _loginEditText.AfterTextChanged -= LoginDataChanged;
-            _passwordEditText.AfterTextChanged -= LoginDataChanged;
-            _passwordEditText.EditorAction -= PasswordEditorAction;
-            _loginButton.Click -= LoginButtonOnClick;
             base.OnDestroy();
         }
 

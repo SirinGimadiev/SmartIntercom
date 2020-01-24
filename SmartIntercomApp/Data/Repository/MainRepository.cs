@@ -19,17 +19,18 @@ namespace Ru.Tattelecom.SmartIntercom.Data.Repository
         public IEnumerable<Intercom> GetIntercoms()
         {
             var currentUser = _cache.GetCurrentUser();
+            //TEST
             return currentUser.Id switch
             {
                 1 => new[]
                 {
                     new Intercom
                     {
-                        VideoStream = "http://test_domofon:12345678@89.232.115.66:8000/live/media/AXXON-CLIENTS/DeviceIpint.319/SourceEndpoint.video:0:0?w=1920&h=0&format=mp4",
+                        VideoStream = "rtsp://192.168.1.10/live/ch00_0",
                         BaseUri = "",
                         OpenDoorAction = "",
-                        Name = "Nateks Домофон",
-                        Address = "Казань, Николая Ершева, 57"
+                        Name = "Nateks Домофон Test",
+                        Address = "test"
                     }
                 },
                 2 => new []
@@ -39,8 +40,8 @@ namespace Ru.Tattelecom.SmartIntercom.Data.Repository
                         VideoStream = "rtsp://192.168.1.4/live/ch00_0",
                         BaseUri = "http://192.168.1.4/fcgi/do?",
                         OpenDoorAction = "action=OpenDoor&UserName=admin&Password=admin&DoorNum=1",
-                        Name = "Qtech Домофон",
-                        Address = "Казань, Николая Ершева, 57"
+                        Name = "Qtech Домофон Test",
+                        Address = "test"
                     }
                 },
                 _ => Enumerable.Empty<Intercom>()
@@ -55,6 +56,7 @@ namespace Ru.Tattelecom.SmartIntercom.Data.Repository
 
         public User Login(string login, string password)
         {
+            //TEST
             if (!password.Equals("123456"))
                 return null;
             var user = login switch

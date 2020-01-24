@@ -32,5 +32,14 @@ namespace Ru.Tattelecom.SmartIntercom.Ui.Pin
             _pin.Remove(_pin.Length - 1, 1);
             _pinSubject.OnNext(_pin.ToString());
         }
+
+        public void SignIn()
+        {
+            
+        }
+
+        public void SignInByFingerprint()
+        {
+        }
     }
 }

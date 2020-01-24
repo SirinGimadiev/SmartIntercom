@@ -1,6 +1,8 @@
 ﻿using System;
 using Android.App;
 using Android.OS;
+using Android.Support.V4.Content;
+using Android.Support.V4.Graphics.Drawable;
 using Android.Support.V7.App;
 using Android.Widget;
 using Ru.Tattelecom.SmartIntercom.Utilits;
@@ -40,9 +42,11 @@ namespace Ru.Tattelecom.SmartIntercom.Ui.Pin
             var clearButton = FindViewById<Button>(Resource.Id.clearButton);
             clearButton.Click += (sender, args) => { _pinViewModel.ClearPin(); };
 
-            //var singInButton = FindViewById<Button>(Resource.Id.singInButton);
+            var signInButton = FindViewById<Button>(Resource.Id.signInButton);
+            signInButton.Click += (sender, args) => { _pinViewModel.SignIn(); };
 
-            //var fingerprintView = FindViewById<ImageView>(Resource.Id.fingerprintView);
+            var fingerprintView = FindViewById<ImageView>(Resource.Id.fingerprintView);
+            fingerprintView.Click += (sender, args) => { _pinViewModel.SignInByFingerprint(); };
         }
 
         private void InitPinViews(params EditText[] pinEditTexts)
@@ -53,7 +57,19 @@ namespace Ru.Tattelecom.SmartIntercom.Ui.Pin
                 pinEditTexts[local].TransformationMethod = new AsteriskPasswordTransformationMethod();
                 _pinViewModel.Pin.Subscribe(pin =>
                 {
-                    pinEditTexts[local].Text = pin.Length > local ? pin[local].ToString() : string.Empty;
+                    var pinEditText = pinEditTexts[local];
+                    if (pin.Length > local)
+                    {
+                        pinEditText.Text = pin[local].ToString();
+                        DrawableCompat.SetTint(pinEditText.Background,
+                            ContextCompat.GetColor(this, Resource.Color.colorPrimary));
+                    }
+                    else
+                    {
+                        pinEditText.Text = string.Empty;
+                        DrawableCompat.SetTint(pinEditText.Background,
+                            ContextCompat.GetColor(this, Resource.Color.colorGray));
+                    }
                 });
             }
         }
